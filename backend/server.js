@@ -7,9 +7,11 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 // bring routes
-const blogRoutes = require('./routes/blog')
-const authRoutes = require('./routes/auth')
-
+const blogRoutes = require('./routes/blog');
+const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
+const categoryRoutes = require('./routes/category');
+const tagRoutes = require('./routes/tag');
 // app
 const app = express()
 
@@ -18,7 +20,7 @@ mongoose
 .connect(process.env.DATABASE_CLOUD,
     err => {
         if(err) throw err;
-        console.log('connected to MongoDB')
+        console.log('connected to MongoDB');
     })
 
 //middlewares
@@ -33,7 +35,9 @@ if (process.env.NODE_ENV === 'development'){
 // routes middleware
 app.use('/api', blogRoutes);
 app.use('/api', authRoutes);
-
+app.use('/api', userRoutes);
+app.use('/api', categoryRoutes);
+app.use('/api', tagRoutes);
 
 //port
 const port=process.env.PORT || 8088

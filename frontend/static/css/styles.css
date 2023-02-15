@@ -1,0 +1,13 @@
+#nprogress .bar {
+    height: 4px !important;
+}
+
+a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: rgba(130, 61, 37, 0.927);
+}
+
+a:hover {
+    text-decoration: underline;
+}
